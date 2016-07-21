@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bluecom_Magento1>
+            <version>1.0.1</version>
+        </Bluecom_Magento1>
+    </modules>
+    <frontend>
+        <routers>
+            <hello_magento1>
+                <use>standard</use>
+                <args>
+                    <module>Bluecom_Magento1</module>
+                    <frontName>hello_magento1</frontName>
+                </args>
+            </hello_magento1>
+            <bluecom_ajax>
+                <use>standard</use>
+                <args>
+                    <module>Bluecom_Magento1</module>
+                    <frontName>bluecom_ajax</frontName>
+                </args>
+            </bluecom_ajax>
+        </routers>
+        <layout>
+            <updates>
+                <hello_magento1>
+                    <file>bluecom_magento1.xml</file>
+                </hello_magento1>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <helpers>
+            <magento1>
+                <class>Bluecom_Magento1_Helper</class>
+            </magento1>
+        </helpers>
+        <blocks>
+            <checkout>
+                <rewrite>
+                    <cart_sidebar>Bluecom_Magento1_Block_Cart_Sidebar</cart_sidebar>
+                </rewrite>
+            </checkout>
+            <magento1>
+                <class>Bluecom_Magento1_Block</class>
+            </magento1>
+        </blocks>
+        <resources>
+            <magento1_setup>
+                <setup>
+                    <module>Bluecom_Magento1</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </magento1_setup>
+            <magento1_write>
+                <connection>
+                <use>core_write</use>
+            </connection>
+            </magento1_write>
+            <magento1_read>
+                <connection>
+                <use>core_read</use>
+                </connection>
+            </magento1_read>
+        </resources>
+
+        <models>
+            <magento1>
+                <class>Bluecom_Magento1_Model</class>
+                <!--
+                need to create our own resource, can’t just
+                use core_resource
+                -->
+                <resourceModel>magento1_resource</resourceModel>
+            </magento1>
+            <!-- Same name of element <resourceModel> -->
+            <magento1_resource>
+                <class>Bluecom_Magento1_Model_Resource</class>
+                <entities>
+                    <blogpost>
+                        <table>blog_posts</table>
+                    </blogpost>
+                    <order>
+                        <table>orders</table>
+                    </order>
+                </entities>
+            </magento1_resource>
+        </models>
+    </global>
+
+    <!-- admin content -->
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <bluecom_order after="Mage_Adminhtml">Bluecom_Magento1_Adminhtml</bluecom_order>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <!-- handle admin layout -->
+        <layout>
+            <updates>
+                <bluecom>
+                    <file>magento1.xml</file>
+                </bluecom>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addJs"><script>jquery.js</script></action>
+        </reference>
+    </catalog_product_view>
+</config> 
