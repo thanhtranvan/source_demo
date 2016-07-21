@@ -1,0 +1,89 @@
+/*
+style for ajax cart from Webinse
+*/
+
+.ajaxcart .products-grid#upsell-product-table {
+    width: 477px;
+}
+.ajaxcart .products-grid#upsell-product-table td {
+    width: 179px;
+    padding-right: 10px;
+}
+
+.ajaxcart{
+    margin: auto;
+    left: 40%;
+    top: 40%;
+    position: fixed;
+    border: 1px #999999 solid;
+    text-align: center !important;
+    padding: 20px;
+    background-color: #ffffff;
+    z-index: 9999;
+    color: black;
+    overflow: auto;
+    min-height: 65px;
+    min-width: 350px;
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+.ajaxcartrelated{
+    margin: auto;
+    left: 32%;
+    top: 28%;
+    position: fixed;
+    border: 1px #999999 solid;
+    text-align: center !important;
+    padding: 20px;
+    background-color: #ffffff;
+    z-index: 9999;
+    color: black;
+    overflow: auto;
+    min-height: 65px;
+    min-width: 350px;
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+.dialog {z-index:1000; height: 900px; width: auto; border:0px solid #555;}
+.block-cart .summary { background:#fff; padding:2px 8px 8px; margin:-1px 0 0;z-index:0; position: inherit; }
+.choice{display:none; position: fixed; left: 50%;top: 50%;z-index: 9995;}
+
+.loader{
+    border: 1px #999999 solid;
+    position: fixed;
+    text-align: center;
+    background-color: #ffffff;
+    z-index: 9999;
+    color: black;
+    overflow: auto;
+    min-height: 50px;
+    min-width: 260px;
+    display:none;
+    margin: 50px auto;
+    left: 43%;
+    top: 40%;
+    padding: 10px;
+    width: auto;
+    height: auto;
+}
+
+.products-grid td { width:10px; background:#FFFFFF; border-right:1px solid #e5dcc3; border-bottom:1px solid #e5dcc3; padding:15px 10px 12px; line-height:1.6em; }
+.ac-product-info { padding-bottom: 10px; }
+.ajaxcart img { margin: 10px auto;}
+.ajaxcart-index-options .product-view .product-shop { width: inherit; float: none; }
+#alphacube { border: none; }
+
+/* Styles for popup after add to cart */
+#ajaxcart .ac-product-info{display: block;}
+#ajaxcart .ac-product-info p{margin: 0;}
+#ajaxcart .timer{font-size: 16px;font-style: inherit;}
+#ajaxcart .timer label{font-weight:bold;}
+#ajaxcart .button.btn-cart{display:block;margin:5px auto;}
+
+.ajaxcart-index-options .product-view .product-shop .availability{font-size: 10px;}
+.ajaxcart-index-options .product-view .product-shop .price-box .regular-price .price{font-size: 14px;}
+.ajaxcart-index-options.page-empty{padding: 0;}

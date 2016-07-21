@@ -1,0 +1,29 @@
+<div class="choice" style="display:none;" id="choice">
+    <div class="ajaxcart" id="ajaxcart">
+        <?php if(Mage::getStoreConfig('ajaxcart/all_settings/choice_product_info')): ?>
+            <?php $_product = Mage::registry('current_product'); ?>
+            <div class="ac-product-info" id="ac-product-info">
+                <p><?php echo $this->__('Next item was successfully added to cart:') ?></p>
+                <h4 class="product-name"><?php echo $_product->getName(); ?></h4>
+                <div>
+                    <img src="<?php echo $_product->getImageUrl(); ?>" alt="<?php echo $_product->getName(); ?>"
+                         title="<?php echo $_product->getName(); ?>" width="150" height="150">
+                </div>
+            </div>
+        <?php endif; ?>
+        <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-cart" onclick="closeAc(); return false;" >
+            <span><span><?php echo $this->__('Continue Shopping') ?></span></span>
+        </button>
+        <?php if(Mage::getStoreConfig('ajaxcart/all_settings/checkout_cart_redirect')) : ?>
+            <span class="timer"><?php echo $this->__('Auto redirect to cart on') ?>
+                <label id="timeout"><?php echo Mage::getStoreConfig('ajaxcart/all_settings/checkout_cart_redirect_timeout'); ?></label>
+                <?php echo $this->__('second(s)') ?>
+            </span>
+        <?php else: ?>
+            <span class="acor"><?php echo $this->__('or') ?></span>
+        <?php endif ?>
+        <button type="button" title="<?php echo $this->__('Go to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo Mage::getUrl('checkout/cart') ?>')" >
+            <span><span><?php echo $this->__('Go to Cart') ?></span></span>
+        </button>
+    </div>
+</div>
