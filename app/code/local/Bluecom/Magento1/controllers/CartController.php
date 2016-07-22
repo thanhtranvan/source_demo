@@ -48,6 +48,7 @@ class Bluecom_Magento1_CartController extends Mage_Checkout_CartController
 	                    $response['status'] = 'SUCCESS';
 	                    $response['options_url'] = $url;
 	                    $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($response));
+	                    var_dump("test product");die;
 	                    return;
 	                }
 	            }

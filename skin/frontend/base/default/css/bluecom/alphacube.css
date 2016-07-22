@@ -56,7 +56,7 @@
 .alphacube_close {
 	width: 23px;
 	height: 23px;
-	background: transparent url(../../images/ajaxcart/window-close.png) no-repeat;
+	background: transparent url(../../../../../../js/prototype/windows/themes/alphacube/window-close.png) no-repeat;
     background-size: cover;
 	position:absolute;
 	top:1px;
