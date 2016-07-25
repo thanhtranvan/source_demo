@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+	    <Bluecom_Stripe>
+            <active>true</active>
+            <codePool>local</codePool>
+	    </Bluecom_Stripe>
+	</modules>
+</config>

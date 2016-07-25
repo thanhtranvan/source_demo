@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bluecom_Stripe>
+            <version>1.0.0</version>
+        </Bluecom_Stripe>
+    </modules>
+    
+    <frontend>
+        <routers>
+            <bluecom_stripe>
+                <use>standard</use>
+                <args>
+                    <module>Bluecom_Stripe</module>
+                    <frontName>bluecom_stripe</frontName>
+                </args>
+            </bluecom_stripe>
+        </routers>
+        <layout>
+            <updates>
+                <bluecom_stripe>
+                    <file>bluecom_stripe.xml</file>
+                </bluecom_stripe>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <fieldsets>
+            <sales_convert_quote_payment>
+                <check_no>
+                    <to_order_payment>*</to_order_payment>
+                </check_no>
+                <check_date>
+                    <to_order_payment>*</to_order_payment>
+                </check_date>
+            </sales_convert_quote_payment>
+        </fieldsets>
+        <helpers>
+            <bluecom_stripe>
+                <class>Bluecom_Stripe_Helper</class>
+            </bluecom_stripe>
+        </helpers>
+        <blocks>
+            <bluecom_stripe>
+                <class>Bluecom_Stripe_Block</class>
+            </bluecom_stripe>
+        </blocks>
+        <resources>
+            <!-- The tab name "stripe_setup" is the folder to put sql script and the "code" record in table "core_resource" -->
+            <stripe_setup>
+                <setup>
+                    <module>Bluecom_Stripe</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </stripe_setup>
+            <stripe_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </stripe_write>
+            <stripe_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </stripe_read>
+        </resources>
+        <models>
+            <stripe>
+                <class>Bluecom_Stripe_Model</class>
+                <!--
+                need to create our own resource, can’t just
+                use core_resource
+                -->
+                <resourceModel>stripe_resource</resourceModel>
+            </stripe>
+            <!-- Same name of element <resourceModel> -->
+            <stripe_resource>
+                <class>Bluecom_Stripe_Model_Resource</class>
+                <!-- <entities>
+                    <blogpost>
+                        <table>blog_posts</table>
+                    </blogpost>
+                    <order>
+                        <table>orders</table>
+                    </order>
+                </entities> -->
+            </stripe_resource>
+        </models>
+    </global>
+    <default>
+        <payment>
+            <bluecom_stripe>
+                <active>1</active>
+                <model>stripe/stripe</model>
+                <order_status>1</order_status>
+                <title>Blecom Payment (Stripe)</title>
+                <allowspecific>0</allowspecific>
+                <payment_action>sale</payment_action>
+                <message>Please enter your credit card information</message>
+            </bluecom_stripe>
+        </payment>
+    </default>
+</config> 

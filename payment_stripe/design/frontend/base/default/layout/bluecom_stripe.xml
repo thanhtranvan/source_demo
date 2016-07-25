@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <bluecom_stripe_payment_index>
+    	<reference name="root">
+            <action method="setTemplate"><template>page/empty.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" template="bluecom_stripe/form/stripe.phtml" />
+        </reference>
+    </bluecom_stripe_payment_index>
+</layout> 
