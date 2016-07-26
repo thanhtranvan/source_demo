@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Bluecom_Custompaymentmethod>
+      <version>1.0.0.0</version>
+    </Bluecom_Custompaymentmethod>
+  </modules>
+ 
+  <global>
+    <fieldsets>
+      <sales_convert_quote_payment>
+        <custom_field_one>
+          <to_order_payment>*</to_order_payment>
+        </custom_field_one>
+        <custom_field_two>
+          <to_order_payment>*</to_order_payment>
+        </custom_field_two>
+      </sales_convert_quote_payment>
+    </fieldsets>
+     
+    <helpers>
+      <custompaymentmethod>
+        <class>Bluecom_Custompaymentmethod_Helper</class>
+      </custompaymentmethod>
+    </helpers>
+ 
+    <blocks>
+      <custompaymentmethod>
+        <class>Bluecom_Custompaymentmethod_Block</class>
+      </custompaymentmethod>
+    </blocks>
+         
+    <models>
+      <custompaymentmethod>
+        <class>Bluecom_Custompaymentmethod_Model</class>
+      </custompaymentmethod>
+    </models>
+ 
+    <resources>
+      <custompaymentmethod_setup>
+        <setup>
+          <module>Bluecom_Custompaymentmethod</module>
+        </setup>
+      </custompaymentmethod_setup>
+    </resources>
+  </global>
+ 
+  <default>
+    <payment>
+      <custompaymentmethod>
+        <active>1</active>
+        <model>custompaymentmethod/paymentmethod</model>
+        <order_status>pending</order_status>
+        <title>Bluecom Payment (Stripe)</title>
+        <allowspecific>0</allowspecific>
+        <payment_action>sale</payment_action>
+      </custompaymentmethod>
+    </payment>
+  </default>
+   
+  <frontend>
+    <routers>
+      <custompaymentmethod>
+        <use>standard</use>
+        <args>
+          <module>Bluecom_Custompaymentmethod</module>
+          <frontName>custompaymentmethod</frontName>
+        </args>
+      </custompaymentmethod>
+    </routers>
+  </frontend>
+</config>
